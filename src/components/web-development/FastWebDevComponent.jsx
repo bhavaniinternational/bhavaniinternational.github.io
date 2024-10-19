@@ -11,16 +11,6 @@ const FastWebDevContainer = styled(Box)(({ theme }) => ({
   borderRadius: "12px", // Optional: add border radius for rounded corners
 }));
 
-// Title styling
-const Title = styled(Typography)(({ theme }) => ({
-  fontWeight: 700,
-  fontSize: "1.8rem", // Title font size
-  margin: "auto",
-  width: "60%",
-  color: "#4C98FD",
-  marginBottom: 50,
-}));
-
 // Content styling
 const Content = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(4),
@@ -40,7 +30,6 @@ const ItalicContent = styled(Content)(({ theme }) => ({
 
 // Button styling
 const ContactButton = styled(Button)(({ theme }) => ({
-  marginTop: theme.spacing(2),
   backgroundColor: "#4C98FD", // Button background color
   color: "#fff", // Button text color
   padding: theme.spacing(1.5, 4), // Add padding for a larger button

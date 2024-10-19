@@ -8,7 +8,7 @@ import WebDevelopmentSection from "./pages/webdevelopement/WebDevelopmentSection
 import AppDevelopement from "./pages/appdevelopement/AppDevelopement";
 import ScrollToTop from "./components/ScrollToTop";
 import SplashScreen from "./components/SplashScreen/SplashScreen";
-
+import "./App.css"
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
