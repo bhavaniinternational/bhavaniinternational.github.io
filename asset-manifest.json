@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8f3dcffd.css",
+    "main.js": "/static/js/main.579bed1e.js",
+    "static/js/453.0f956778.chunk.js": "/static/js/453.0f956778.chunk.js",
+    "static/media/hero-image-6.png": "/static/media/hero-image-6.98716363e9e95edea36a.png",
+    "static/media/contactus.jpg": "/static/media/contactus.0b306a6e2a3d0dc76d02.jpg",
+    "static/media/transperent-logo.png": "/static/media/transperent-logo.f663797f1d5f0908d3f7.png",
+    "static/media/postgres.png": "/static/media/postgres.a7fa39912c91e079e90b.png",
+    "static/media/nodejs.png": "/static/media/nodejs.10ccac0eb9dd930b6b6c.png",
+    "static/media/react.png": "/static/media/react.3bf6fb4b18b1f904676d.png",
+    "static/media/java.png": "/static/media/java.ddf8676bd569fe01ab44.png",
+    "static/media/target.png": "/static/media/target.6025fb2158012908630f.png",
+    "static/media/web.png": "/static/media/web.d88ec36c889ea5a99296.png",
+    "static/media/docker.png": "/static/media/docker.c1f953a3ead577c05d04.png",
+    "static/media/azure.png": "/static/media/azure.5d1a8fab844d3535f56e.png",
+    "static/media/customers.png": "/static/media/customers.8ec1196788808e00b890.png",
+    "static/media/aws.png": "/static/media/aws.dc407c532bab5d443ddc.png",
+    "static/media/mobile.jpeg": "/static/media/mobile.7f8a6d860c5128f398fc.jpeg",
+    "index.html": "/index.html",
+    "main.8f3dcffd.css.map": "/static/css/main.8f3dcffd.css.map",
+    "main.579bed1e.js.map": "/static/js/main.579bed1e.js.map",
+    "453.0f956778.chunk.js.map": "/static/js/453.0f956778.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f3dcffd.css",
+    "static/js/main.579bed1e.js"
+  ]
+}
