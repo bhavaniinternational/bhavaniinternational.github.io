@@ -1,0 +1,102 @@
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Make sure it covers everything */
+}
+
+.brand-name {
+  color: white;
+  font-size: 0.5rem; /* Start with small size */
+  font-weight: bold;
+  opacity: 0;
+  animation: growAndFadeIn 2s ease-out forwards; /* Updated animation */
+}
+
+.loading-text {
+  position: absolute;
+  bottom: 20px; /* Move the loading text to the bottom */
+  left: 2%; /* Center horizontally */
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.loading-dots {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  padding-top: 10%;
+}
+
+.loading-dots span {
+  background-color: white;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+  opacity: 0.6;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* Pulsing dots animation */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes growAndFadeIn {
+  0% {
+    opacity: 0;
+    font-size: 0.5rem;
+    transform: scale(0.5);
+  }
+  25% {
+    opacity: 0.25; /* Adjust opacity for smoother transition */
+    font-size: 1rem; /* Intermediate size */
+    transform: scale(0.75); /* Slightly larger */
+  }
+  50% {
+    opacity: 0.5;
+    font-size: 2rem;
+    transform: scale(1); /* Return to normal scale */
+  }
+  75% {
+    opacity: 0.75; /* Increase opacity gradually */
+    font-size: 2.5rem; /* Slightly larger size */
+    transform: scale(1.5); /* Scale up a bit */
+  }
+  100% {
+    opacity: 1;
+    font-size: 3rem;
+    transform: scale(2); /* End slightly larger */
+  }
+}
