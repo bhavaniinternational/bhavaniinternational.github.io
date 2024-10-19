@@ -74,7 +74,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
 const socialLinks = [
   { name: "LinkedIn", url: "https://www.linkedin.com" },
   { name: "Telegram", url: "https://telegram.org" },
-  { name: "Instagram", url: "https://www.instagram.com" },
+  { name: "Instagram", url: "https://www.instagram.com/bhavaniinternational/" },
 ];
 
 const Footer = () => {
