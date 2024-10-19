@@ -1,0 +1,43 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Set gradient scrollbar styles */
+::-webkit-scrollbar {
+  width: 15px; /* Width of the vertical scrollbar */
+  height: 10px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: white; /* Set track color to white */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    white,
+    #3b7bcd
+  ); /* Gradient from #4C98FD to #3b7bcd */
+  border-radius: 0px 0px 10px 10px; /* Rounded corners for the thumb */
+  height: 50px; /* Set height for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    white,
+    #357ab4
+  ); /* Darker shade on hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    to bottom,
+    white,
+    #2f6e9b
+  ); /* Even darker shade when active */
+}
