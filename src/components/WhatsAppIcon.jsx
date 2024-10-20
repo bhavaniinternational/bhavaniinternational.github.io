@@ -22,7 +22,7 @@ const WhatsAppContainer = styled(Box)(({ theme }) => ({
 const WhatsAppFloatingButton = () => {
   const handleClick = () => {
     // Open WhatsApp chat (Replace with your desired phone number)
-    window.open('https://wa.me/1234567890', '_blank'); // Replace with the desired phone number
+    window.open('https://wa.me/9423379542', '_blank'); // Replace with the desired phone number
   };
 
   return (

@@ -10,8 +10,9 @@ import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Drawer from "@mui/material/Drawer"; // Import Drawer
 import logo from "../utils/transperent-logo.png";
 
 const NavbarContainer = styled(AppBar)(({ theme }) => ({
@@ -33,11 +34,11 @@ const Logo = styled(Box)(({ theme }) => ({
 }));
 
 const NavLink = styled(Button)(({ theme }) => ({
-  margin: theme.spacing(2, 0), // Increase margin for better spacing
+  margin: theme.spacing(2, 0),
   color: "#000",
   fontWeight: 600,
   textTransform: "none",
-  width: "100%", // Make links full width for easier tapping
+  width: "100%",
   "&:hover": {
     color: "#2A78BE",
   },
@@ -54,26 +55,33 @@ const Circle = styled(Box)(({ theme }) => ({
   borderRadius: "50%",
 }));
 
-const Overlay = styled(Box)(({ theme }) => ({
-  position: "fixed",
-  top: 0,
-  left: 0,
+const DrawerNavLink = styled(Button)(({ theme }) => ({
+  margin: theme.spacing(2, 0),
+  color: "#fff",
+  fontWeight: 600,
+  textTransform: "none",
+  display: "block",
   width: "100%",
-  height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.8)",
-  zIndex: 1300,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  padding: theme.spacing(2), // Add padding for better layout
-  transition: "opacity 0.3s ease-in-out", // Add transition for overlay
+  borderRadius: "4px",
+  padding: "12px 16px",
+  transition: "background-color 0.3s, transform 0.3s",
+  "&:hover": {
+    backgroundColor: "#2A78BE",
+    transform: "scale(1.05)",
+  },
+}));
+
+const DrawerContainer = styled(Box)(({ theme }) => ({
+  height: "100vh",
+  backgroundColor: "rgba(0, 0, 0, 0.85)",
+  color: "#fff",
+  padding: "20px",
 }));
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
   const [anchorEl, setAnchorEl] = useState(null);
-  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false); // Drawer state
   const isMobile = useMediaQuery("(max-width:600px)");
   let navigate = useNavigate();
 
@@ -90,7 +98,7 @@ const Navbar = () => {
   const handleNavClick = (tab) => {
     setActiveTab(tab);
     handleMenuClose();
-    setOverlayOpen(false); // Close overlay after clicking a link
+    setDrawerOpen(false); // Close drawer after clicking a link
   };
 
   useEffect(() => {
@@ -214,10 +222,12 @@ const Navbar = () => {
   );
 
   const renderNavLinksSmallDevice = () => (
-    <Box
+    <DrawerContainer
       sx={{
-        mt: 2,
-        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center", // Vertically center the text
+        textAlign: "center", // Center the text horizontally
       }}
     >
       {[
@@ -227,14 +237,18 @@ const Navbar = () => {
         "Web Development",
         "Mobile App Development",
       ].map((item) => (
-        <NavLink
+        <DrawerNavLink
           key={item}
           sx={{
             color: "white",
             display: "block",
             padding: "12px 16px",
-            borderRadius: "4px",
-            transition: "background-color 0.3s, transform 0.3s",
+            borderRadius: "8px",
+            transition: "transform 0.3s, box-shadow 0.3s",
+            "&:hover": {
+              transform: "scale(1.05)",
+              boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.3)",
+            },
           }}
           component="span"
           onClick={() => {
@@ -256,15 +270,13 @@ const Navbar = () => {
             } else {
               navigate(`/${item.replace(" ", "-").toLowerCase()}`); // Redirect to other pages
             }
-            setOverlayOpen(false); // Close the overlay after clicking a link
           }}
         >
           {item}
-        </NavLink>
+        </DrawerNavLink>
       ))}
-    </Box>
+    </DrawerContainer>
   );
-
   return (
     <NavbarContainer>
       <Toolbar>
@@ -280,29 +292,38 @@ const Navbar = () => {
             <IconButton
               edge="end"
               aria-label="menu"
-              onClick={() => setOverlayOpen(true)}
-              sx={{ color: overlayOpen ? "white" : "black" }} // Change color based on overlay state
+              onClick={() => setDrawerOpen(true)}
+              sx={{ color: drawerOpen ? "white" : "black" }}
             >
               <MenuIcon />
             </IconButton>
-            {overlayOpen && (
-              <Overlay>
-                <IconButton
-                  edge="end"
-                  aria-label="close"
-                  onClick={() => setOverlayOpen(false)}
-                  sx={{
-                    position: "absolute",
-                    top: 20,
-                    right: 20,
-                    color: "white",
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Box>{renderNavLinksSmallDevice()}</Box>
-              </Overlay>
-            )}
+            <Drawer
+              anchor="left"
+              open={drawerOpen}
+              onClose={() => setDrawerOpen(false)}
+              sx={{
+                "& .MuiDrawer-paper": {
+                  width: "100%", // Full-width drawer
+                  backgroundColor: "rgba(0, 0, 0, 0.8)",
+                  color: "white",
+                },
+              }}
+            >
+              <IconButton
+                edge="end"
+                aria-label="close"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  position: "absolute",
+                  top: 20,
+                  right: 20,
+                  color: "white",
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+              <Box>{renderNavLinksSmallDevice()}</Box>
+            </Drawer>
           </>
         ) : (
           <Box sx={{ display: "flex" }}>{renderNavLinks()}</Box>

@@ -16,9 +16,8 @@ const StatsCardContainer = styled(Box)(({ theme }) => ({
   marginTop: "20px",
   color: "white",
   [theme.breakpoints.down("md")]: {
-    flexDirection: "column", // Stack items vertically on smaller screens
+    flexDirection: "row", // Stack items vertically on smaller screens
     height: "auto", // Allow height to adjust automatically
-    borderRadius: "12px", // Adjust border radius for smaller screens
     gap: 10,
   },
   [theme.breakpoints.down("sm")]: {

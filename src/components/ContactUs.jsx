@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Box, Typography, TextField, Button, CircularProgress } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import contactUsimg from "../utils/contactus.jpg";
 import { baseurl } from "../config/apiconfig.js";
@@ -18,8 +24,9 @@ const ContactUsContainer = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(4),
   marginLeft: 40,
   marginRight: 40,
+  gap: 6,
   [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
+    flexDirection: "column", // Change layout to column on medium/small screens
     marginLeft: 20,
     marginRight: 20,
   },
@@ -29,7 +36,6 @@ const ContactUsContainer = styled(Box)(({ theme }) => ({
     marginRight: 10,
   },
 }));
-
 const FormContainer = styled(Box)(({ theme }) => ({
   flex: 1,
   width: "80%",
@@ -81,12 +87,13 @@ const ImageIllustration = styled(Box)(({ theme }) => ({
   height: "100%",
   paddingTop: 100,
   [theme.breakpoints.down("md")]: {
-    paddingTop: theme.spacing(4),
-    marginTop: theme.spacing(4),
+    order: -1, // Move the image to the top on small screens
+    paddingTop: theme.spacing(2),
+    marginBottom: theme.spacing(4),
   },
   [theme.breakpoints.down("sm")]: {
     paddingTop: theme.spacing(2),
-    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
 }));
 
@@ -205,7 +212,11 @@ const ContactUs = () => {
             />
             <Box display="flex" justifyContent="flex-end">
               <StyledButton type="submit" disabled={loading}>
-                {loading ? <CircularProgress size={24} color="inherit" /> : "Send Message"}
+                {loading ? (
+                  <CircularProgress size={24} color="inherit" />
+                ) : (
+                  "Send Message"
+                )}
               </StyledButton>
             </Box>
           </form>

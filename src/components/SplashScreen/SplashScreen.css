@@ -14,10 +14,10 @@
 
 .brand-name {
   color: white;
-  font-size: 0.5rem; /* Start with small size */
+  font-size: 0.5rem;
   font-weight: bold;
   opacity: 0;
-  animation: growAndFadeIn 2s ease-out forwards; /* Updated animation */
+  animation: growAndFadeIn 2s ease-out ; /* Updated animation */
 }
 
 .loading-text {
@@ -77,26 +77,16 @@
   0% {
     opacity: 0;
     font-size: 0.5rem;
-    transform: scale(0.5);
-  }
-  25% {
-    opacity: 0.25; /* Adjust opacity for smoother transition */
-    font-size: 1rem; /* Intermediate size */
-    transform: scale(0.75); /* Slightly larger */
+    transform: scale(0);
   }
   50% {
     opacity: 0.5;
     font-size: 2rem;
-    transform: scale(1); /* Return to normal scale */
-  }
-  75% {
-    opacity: 0.75; /* Increase opacity gradually */
-    font-size: 2.5rem; /* Slightly larger size */
-    transform: scale(1.5); /* Scale up a bit */
+    transform: scale(3); /* Return to normal scale */
   }
   100% {
     opacity: 1;
-    font-size: 3rem;
-    transform: scale(2); /* End slightly larger */
+    font-size: 0rem;
+    transform: scale(0); /* End slightly larger */
   }
 }

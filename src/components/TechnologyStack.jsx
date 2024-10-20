@@ -39,6 +39,9 @@ const SecurityText = styled(Typography)(({ theme }) => ({
   width: "50vw", // Adjusted width
   fontWeight: 600,
   color: "gray",
+  [theme.breakpoints.down("sm")]: {
+    width: "70vw", // Decrease font size further on small screens
+  },
 }));
 
 // Container for the technology items displaying logos and names
