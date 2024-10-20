@@ -73,7 +73,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
 // Social Media Links
 const socialLinks = [
   { name: "LinkedIn", url: "https://www.linkedin.com" },
-  { name: "Telegram", url: "https://telegram.org" },
+  // { name: "Telegram", url: "https://telegram.org" },
   { name: "Instagram", url: "https://www.instagram.com/bhavaniinternational/" },
 ];
 
